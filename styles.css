@@ -256,7 +256,7 @@ ul {
     display: flex;
     align-items: center;
     gap: 10px;
-    z-index: 1001;
+    z-index: 10001;
 }
 
 .logo__icon {
@@ -315,12 +315,17 @@ ul {
 .hamburger {
     display: none;
     flex-direction: column;
-    gap: 5px;
-    background: none;
+    gap: 6px;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: 4px;
-    z-index: 1001;
+    padding: 10px;
+    z-index: 10001;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger span {
@@ -1304,16 +1309,14 @@ ul {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(15, 42, 74, 0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        background: var(--primary-dark);
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
         pointer-events: none;
         transition: var(--transition);
-        z-index: 1000;
+        z-index: 10000;
     }
 
     .nav--open {
@@ -1335,25 +1338,27 @@ ul {
         align-items: center;
     }
 
-    .hamburger {
-        display: flex;
-        min-width: 44px;
-        min-height: 44px;
-        align-items: center;
-        justify-content: center;
+    .nav__close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 2.5rem;
+        cursor: pointer;
+        line-height: 1;
+        padding: 8px;
+        z-index: 10002;
+        -webkit-tap-highlight-color: transparent;
     }
 
-    .btn--call span {
-        display: none;
+    .hamburger {
+        display: flex;
     }
 
     .btn--call {
-        padding: 10px;
-        min-width: 44px;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: none;
     }
 
     .logo__name {
@@ -1571,7 +1576,7 @@ ul {
 
     /* Gallery */
     .gallery__grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 
@@ -1867,6 +1872,9 @@ ul {
     .footer__col:last-child {
         grid-column: span 1;
     }
+    .mobile-call-bar {
+        display: block;
+    }
 }
 
 /* === MOBILE BOTTOM CALL BAR === */
@@ -1876,7 +1884,7 @@ ul {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 998;
+    z-index: 9999;
     background: var(--primary-dark);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 10px 16px;
