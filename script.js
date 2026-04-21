@@ -33,6 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== MOBILE NAV TOGGLE =====
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
+    const navClose = document.getElementById('nav-close');
+
+    function closeMobileNav() {
+        hamburger.classList.remove('active');
+        nav.classList.remove('nav--open');
+        document.body.style.overflow = '';
+    }
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
@@ -40,13 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = nav.classList.contains('nav--open') ? 'hidden' : '';
     });
 
+    if (navClose) {
+        navClose.addEventListener('click', closeMobileNav);
+    }
+
     // Close nav on link click
     document.querySelectorAll('.nav__link').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            nav.classList.remove('nav--open');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMobileNav);
     });
 
     // ===== ACTIVE NAV LINK =====
